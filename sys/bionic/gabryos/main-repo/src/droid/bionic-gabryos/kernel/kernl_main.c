@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "kernl_log.h"
+#include "kernl_cpu.h"
 #include "../NDKs/AndroidX/include/androidx_core.h"
 #include "../NDKs/AndroidX/include/androidx_ui.h"
 #include "../NDKs/AndroidX/include/androidx_system.h"
