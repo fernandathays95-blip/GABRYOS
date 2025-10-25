@@ -30,4 +30,4 @@
 Clone o repositório:
 
 ```bash
-git clone https://github.com/SEU_USUARIO/GABRYOS.git
+git clone https://github.com/fernandathays95-blip/GABRYOS.git
