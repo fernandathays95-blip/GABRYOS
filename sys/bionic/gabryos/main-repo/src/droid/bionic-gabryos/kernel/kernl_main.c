@@ -1,68 +1,58 @@
+// kernl_main.c
+// GABRYOS - Kernel principal com detecção automática de módulos
+
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdint.h>
+#include <unistd.h>
+#include <dirent.h>
 #include <string.h>
-#include "kernl_log.h"
-#include "kernl_debug.h"
-#include "kernl_debug_rt.h"
-#include "kernl_cpu.h"
-#include "../NDKs/AndroidX/include/androidx_core.h"
-#include "../NDKs/AndroidX/include/androidx_ui.h"
-#include "../NDKs/AndroidX/include/androidx_system.h"
+#include <stdlib.h>
 
-#define GABRYOS_VERSION "1.0.0-alpha"
-#define GABRYOS_CODENAME "BIONIC-KERNEL"
-
-void gabryos_boot_logo() {
-    printf("\n=====================================\n");
-    printf("      GABRYOS SYSTEM BOOT v%s\n", GABRYOS_VERSION);
-    printf("      Codename: %s\n", GABRYOS_CODENAME);
-    printf("=====================================\n\n");
+// Simulação de carregamento de módulo a partir de array de bytes
+void kernel_load_module(const uint8_t* module, size_t size, const char* name) {
+    printf("[KERNEL] Módulo %s carregado, tamanho: %zu bytes\n", name, size);
 }
 
-void gabryos_init_drivers() {
-    kernl_log(LOG_INFO, "BOOT", "Iniciando GABRYOS...");
-    kernl_log(LOG_INFO, "DRIVER", "Drivers carregados com sucesso.");
-    kernl_log(LOG_WARN, "NDK", "Algumas APIs podem estar indisponíveis.");
-    kernl_log(LOG_ERROR, "CORE", "Falha ao inicializar componente gráfico!");
-    kernl_log(LOG_DEBUG, "KERNEL", "Thread principal aguardando tarefas...");
-}
+// Include dos módulos existentes
+#include "USB_controll_module.h"
+// Outros módulos podem ser incluídos aqui manualmente ou via script de build
 
-void gabryos_check_ndk() {
-    printf("[GABRYOS/NDK] Verificando NDK AndroidX...\n");
-    androidx_checkNDK();
-    printf("[GABRYOS/NDK] Verificação concluída.\n\n");
-}
+// Função que inicializa todos os módulos
+void init_modules() {
+    // Inicializa USB
+    kernel_load_module(USB_CONTROLL_KO, USB_CONTROLL_KO_SIZE, "USB_controll");
 
-void gabryos_init_system() {
-    printf("[GABRYOS/CORE] Inicializando sistema AndroidX...\n");
-    androidx_initCore();
-
-    const char* os_name = androidx_getSystemProperty("os.name");
-    const char* os_version = androidx_getSystemProperty("os.version");
-
-    printf("[GABRYOS/CORE] Sistema: %s v%s\n", os_name, os_version);
-    printf("[GABRYOS/CORE] Inicialização concluída.\n\n");
-}
-
-void gabryos_render_ui() {
-    printf("[GABRYOS/UI] Renderizando ambiente gráfico principal...\n");
-    androidx_renderWindow("Painel principal do GABRYOS");
-    printf("[GABRYOS/UI] Interface pronta.\n\n");
+    // Se outros módulos existirem, inicialize aqui
+    // kernel_load_module(OUTRO_MODULE, OUTRO_MODULE_SIZE, "OUTRO_MODULE");
 }
 
 int main() {
-    gabryos_boot_logo();
-    gabryos_init_drivers();
-    gabryos_check_ndk();
-    gabryos_init_system();
-    gabryos_render_ui();
+    printf("=====================================\n");
+    printf("      GABRYOS KERNEL BOOT v1.0.0\n");
+    printf("=====================================\n\n");
 
-    // Chamada do painel de debug
-gabryos_debug_panel();
-    // Entrar no painel de debug em tempo real
-gabryos_debug_panel_rt();
-    printf("[GABRYOS/KERNEL] Sistema inicializado com sucesso.\n");
-    printf("[GABRYOS/KERNEL] Aguardando tarefas do usuário...\n\n");
+    init_modules();
+    printf("[KERNEL] Todos os módulos carregados.\n");
+    printf("[KERNEL] Loop principal iniciado. Monitorando novos módulos...\n\n");
+
+    // Loop infinito simulando hotload de módulos
+    while (1) {
+        DIR* d;
+        struct dirent* dir;
+        d = opendir("./modules"); // pasta onde módulos .h adicionais podem ser adicionados
+        if (d) {
+            while ((dir = readdir(d)) != NULL) {
+                if (strstr(dir->d_name, "_module.h")) {
+                    printf("[KERNEL] Detectado módulo: %s\n", dir->d_name);
+                    // Aqui você pode chamar init do módulo correspondente
+                    // Em C real, precisaria recompilar para incluir o módulo
+                }
+            }
+            closedir(d);
+        }
+
+        sleep(1); // espera 1 segundo antes de checar novamente
+    }
 
     return 0;
 }
