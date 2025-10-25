@@ -16,8 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.gabryos.ui.theme.GABRYOSTheme
-import com.gabryos.packages.* // importa todos os apps
+import java.io.File
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +33,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun LauncherScreen() {
-    val apps = remember { AppRegistry.getApps() }
+    val apps = remember { loadApps() }
 
     Column(modifier = Modifier.fillMaxSize()) {
         Text(
@@ -61,7 +60,6 @@ fun AppItem(appName: String, onClick: () -> Unit) {
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // Aqui você pode colocar um ícone padrão ou personalizado por app
         Image(
             painter = painterResource(id = android.R.drawable.sym_def_app_icon),
             contentDescription = "Ícone do app",
@@ -72,16 +70,24 @@ fun AppItem(appName: String, onClick: () -> Unit) {
     }
 }
 
-// Classe que registra os apps
-object AppRegistry {
-    fun getApps(): List<AppInfo> {
-        return listOf(
-            AppInfo("App1") { App1.launchApp() },
-            AppInfo("App2") { App2.launchApp() }
-            // adicione todos os apps de packages aqui
+// Classe que representa cada app
+data class AppInfo(val name: String, val launch: () -> Unit)
+
+// Função que varre a pasta packages e cria os AppInfo
+fun loadApps(): List<AppInfo> {
+    val appsDir = File("/data/data/com.gabryos/files/packages") // caminho interno do Android
+    if (!appsDir.exists() || !appsDir.isDirectory) return emptyList()
+
+    return appsDir.listFiles { file -> file.extension == "kt" }?.map { file ->
+        AppInfo(
+            name = file.nameWithoutExtension,
+            launch = { launchApp(file.nameWithoutExtension) }
         )
-    }
+    } ?: emptyList()
 }
 
-// Classe para cada app
-data class AppInfo(val name: String, val launch: () -> Unit)
+// Função que simula o lançamento do app
+fun launchApp(appName: String) {
+    println("🚀 Lançando app: $appName")
+    // Aqui você integraria a execução real do app
+}
