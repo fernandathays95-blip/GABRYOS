@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include "kernl_log.h"
 #include "../NDKs/AndroidX/include/androidx_core.h"
 #include "../NDKs/AndroidX/include/androidx_ui.h"
 #include "../NDKs/AndroidX/include/androidx_system.h"
@@ -17,11 +17,11 @@ void gabryos_boot_logo() {
 }
 
 void gabryos_init_drivers() {
-    printf("[GABRYOS/DRIVER] Carregando drivers básicos...\n");
-    printf("[GABRYOS/DRIVER] /dev/gpu0 -> OK\n");
-    printf("[GABRYOS/DRIVER] /dev/input -> OK\n");
-    printf("[GABRYOS/DRIVER] /dev/snd0 -> OK\n");
-    printf("[GABRYOS/DRIVER] Drivers prontos.\n\n");
+    kernl_log(LOG_INFO, "BOOT", "Iniciando GABRYOS...");
+kernl_log(LOG_INFO, "DRIVER", "Drivers carregados com sucesso.");
+kernl_log(LOG_WARN, "NDK", "Algumas APIs podem estar indisponíveis.");
+kernl_log(LOG_ERROR, "CORE", "Falha ao inicializar componente gráfico!");
+kernl_log(LOG_DEBUG, "KERNEL", "Thread principal aguardando tarefas...");
 }
 
 void gabryos_check_ndk() {
