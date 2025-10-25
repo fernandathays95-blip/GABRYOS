@@ -6,17 +6,17 @@
 
 class APINotSupported {
 public:
-    // Construtor com número da API
-    APINotSupported(int apiNumber);
+    // Construtor com número mínimo suportado
+    APINotSupported(int minSupportedAPI);
 
-    // Função que mostra a mensagem de API não suportada
-    void showMessage() const;
+    // Verifica se a API atual é suportada e mostra mensagem
+    void checkAPI(int currentAPI = -1) const;
 
-    // Getter do número da API
-    int getAPINumber() const;
+    // Getter do mínimo suportado
+    int getMinSupportedAPI() const;
 
 private:
-    int apiNumber;
+    int minSupportedAPI;
 };
 
 #endif // API_NOT_SUPPORTED_H
