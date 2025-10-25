@@ -11,7 +11,7 @@
 ![Versão](https://img.shields.io/badge/version-1.0-blue)
 ![Build](https://img.shields.io/badge/build-passing-brightgreen)
 ![Licença](https://img.shields.io/badge/license-MIT-lightgrey)
-![Último commit](https://img.shields.io/github/last-commit/SEU_USUARIO/GABRYOS)
+![Último commit](https://img.shields.io/github/last-commit/fernandathays95-blip/GABRYOS)
 
 ---
 
