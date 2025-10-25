@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "kernl_memory.h"
 #include "kernl_log.h"
 #include "../NDKs/AndroidX/include/androidx_core.h"
 #include "../NDKs/AndroidX/include/androidx_ui.h"
@@ -61,7 +62,7 @@ int main() {
     gabryos_check_ndk();
     gabryos_init_system();
     gabryos_render_ui();
-
+    gabryos_init_memory();
     kernl_log(LOG_INFO, "KERNEL", "Sistema inicializado com sucesso.");
     kernl_log(LOG_DEBUG, "KERNEL", "Aguardando tarefas do usuário...");
 
