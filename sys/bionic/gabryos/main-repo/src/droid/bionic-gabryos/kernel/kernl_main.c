@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "kernl_log.h"
+#include "kernl_debug.h"
 #include "kernl_cpu.h"
 #include "../NDKs/AndroidX/include/androidx_core.h"
 #include "../NDKs/AndroidX/include/androidx_ui.h"
@@ -55,6 +56,8 @@ int main() {
     gabryos_init_system();
     gabryos_render_ui();
 
+    // Chamada do painel de debug
+gabryos_debug_panel();
     printf("[GABRYOS/KERNEL] Sistema inicializado com sucesso.\n");
     printf("[GABRYOS/KERNEL] Aguardando tarefas do usuário...\n\n");
 
