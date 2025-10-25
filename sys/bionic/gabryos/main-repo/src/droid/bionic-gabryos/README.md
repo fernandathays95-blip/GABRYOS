@@ -1,6 +1,6 @@
 # GABRYOS
 
-> Sistema operacional hardcore desenvolvido por Enzo Inc.  
+> Sistema operacional hardcore desenvolvido por Fernanda/Enzo Inc.  
 > Interface moderna com AndroidX, launcher de aplicativos e módulos de sistema completos.
 
 ---
