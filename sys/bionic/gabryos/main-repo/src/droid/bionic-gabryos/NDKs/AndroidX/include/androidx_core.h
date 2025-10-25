@@ -1,12 +1,15 @@
 #ifndef ANDROIDX_CORE_H
 #define ANDROIDX_CORE_H
 
-#include <string>
-#include <iostream>
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-namespace androidx {
-    void initCore();
-    std::string getSystemProperty(const std::string &key);
+void androidx_initCore();
+const char* androidx_getSystemProperty(const char* key);
+
+#ifdef __cplusplus
 }
+#endif
 
 #endif // ANDROIDX_CORE_H
