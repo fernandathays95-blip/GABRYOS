@@ -1,19 +1,17 @@
 #ifndef KERNL_MEMORY_H
 #define KERNL_MEMORY_H
 
-#include <stddef.h> // para size_t
+#include <stddef.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+typedef struct {
+    unsigned long total;
+    unsigned long used;
+    unsigned long free;
+    float usage_percent;
+} gabryos_meminfo_t;
 
-void kmem_init();
-void* kmalloc(size_t size);
-void kfree(void* ptr);
-void kmem_usage();
-
-#ifdef __cplusplus
-}
-#endif
+void gabryos_init_memory();
+gabryos_meminfo_t gabryos_get_meminfo();
+void gabryos_log_meminfo();
 
 #endif // KERNL_MEMORY_H
