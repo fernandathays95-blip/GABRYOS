@@ -1,3 +1,4 @@
+__import__ <recovery_funcs.mpl>
 menu = {
 __element option_reboot = "reboot";
 __element option_reboottobootloader = "reboot to bootloader";
@@ -25,3 +26,13 @@ touch "$DIR/.gitkeep"
 
 echo "Reset concluido"
 """
+if reboot {func_reboot();};
+if reboot2 {func_reboottobootloader();};
+if update {func_update();};
+if wipe {func_wipecache();};
+if reset {func_factory_reset();}; /** YES ROOT */
+__import__ <root.mpl>
+__import__ <input.mpl>
+if __input KEY_VOL+ {UP};
+if __input KEY_VOL- {DOWN};
+if __input KEY_POWER {SELECT};
