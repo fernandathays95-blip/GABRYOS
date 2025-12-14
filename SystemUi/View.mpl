@@ -695,3 +695,239 @@ __STRING __pixel_gradient_start_color = "0xFFAA00";
 
 /** Cor final do gradiente do pixel */
 __STRING __pixel_gradient_end_color = "0x00AAFF";
+/** Flag para animação global habilitada */
+__boolean __animation_enabled = true;
+
+/** Velocidade padrão da animação (frames por segundo) */
+__NUM __animation_fps = 60;
+
+/** Duração da animação em milissegundos */
+__NUM __animation_duration = 500;
+
+/** Flag para animação de fade in */
+__boolean __animation_fade_in = true;
+
+/** Flag para animação de fade out */
+__boolean __animation_fade_out = true;
+
+/** Flag para animação de deslocamento X */
+__boolean __animation_translate_x = false;
+
+/** Flag para animação de deslocamento Y */
+__boolean __animation_translate_y = false;
+
+/** Flag para animação de escala */
+__boolean __animation_scale = false;
+
+/** Flag para animação de rotação */
+__boolean __animation_rotate = false;
+
+/** Flag para animação de cor */
+__boolean __animation_color = false;
+
+/** Intensidade de rotação do objeto */
+__NUM __animation_rotate_angle = 0;
+
+/** Valor inicial da escala */
+__NUM __animation_scale_start = 1;
+
+/** Valor final da escala */
+__NUM __animation_scale_end = 1;
+
+/** Valor inicial da opacidade */
+__NUM __animation_opacity_start = 0;
+
+/** Valor final da opacidade */
+__NUM __animation_opacity_end = 255;
+
+/** Flag de loop infinito da animação */
+__boolean __animation_loop = false;
+
+/** Flag de reversão da animação */
+__boolean __animation_reverse = false;
+
+/** Flag para animação de icon piscando */
+__boolean __animation_icon_blink = false;
+
+/** Intervalo de piscada do ícone */
+__NUM __animation_icon_blink_interval = 500;
+
+/** Flag para animação de título */
+__boolean __animation_title = false;
+
+/** Flag para animação de painel deslizante */
+__boolean __animation_panel_slide = false;
+
+/** Velocidade do slide do painel */
+__NUM __animation_panel_slide_speed = 10;
+
+/** Flag para animação de expansão de painel */
+__boolean __animation_panel_expand = false;
+
+/** Flag para animação de redução de painel */
+__boolean __animation_panel_collapse = false;
+
+/** Flag para animação de widget tremendo */
+__boolean __animation_widget_shake = false;
+
+/** Intensidade do shake do widget */
+__NUM __animation_widget_shake_intensity = 5;
+
+/** Flag para animação de objeto pulsando */
+__boolean __animation_pulse = false;
+
+/** Intensidade da animação de pulso */
+__NUM __animation_pulse_intensity = 10;
+
+/** Flag para animação de overlay */
+__boolean __animation_overlay = false;
+
+/** Duração da animação do overlay */
+__NUM __animation_overlay_duration = 300;
+
+/** Flag para animação de fastboot */
+__boolean __animation_fastboot = false;
+
+/** Flag para animação de panic screen */
+__boolean __animation_panic = false;
+
+/** Flag para animação de barra de progresso */
+__boolean __animation_progress = false;
+
+/** Velocidade da animação da barra de progresso */
+__NUM __animation_progress_speed = 5;
+
+/** Flag para animação de slider */
+__boolean __animation_slider = false;
+
+/** Flag para animação de checkbox */
+__boolean __animation_checkbox = false;
+
+/** Flag para animação de switch */
+__boolean __animation_switch = false;
+
+/** Flag para animação de radio button */
+__boolean __animation_radio = false;
+
+/** Flag para animação de menu */
+__boolean __animation_menu = false;
+
+/** Flag para animação de submenu */
+__boolean __animation_submenu = false;
+
+/** Flag para animação de tab */
+__boolean __animation_tab = false;
+
+/** Flag para animação de tab item */
+__boolean __animation_tab_item = false;
+
+/** Flag para animação de cursor */
+__boolean __animation_cursor = false;
+
+/** Flag para animação de overlay piscando */
+__boolean __animation_overlay_blink = false;
+
+/** Flag para animação de objeto em hover */
+__boolean __animation_hover = false;
+
+/** Flag para animação de objeto pressionado */
+__boolean __animation_pressed = false;
+
+/** Flag para animação de widget flutuante */
+__boolean __animation_widget_float = false;
+
+/** Flag para animação de cor do widget */
+__boolean __animation_widget_color = false;
+
+/** Flag para animação de tamanho do widget */
+__boolean __animation_widget_size = false;
+
+/** Flag para animação de posição do widget */
+__boolean __animation_widget_position = false;
+
+/** Flag para animação de opacidade do widget */
+__boolean __animation_widget_opacity = false;
+
+/** Flag para animação de icon dentro do widget */
+__boolean __animation_widget_icon = false;
+
+/** Flag para animação de texto dentro do widget */
+__boolean __animation_widget_text = false;
+
+/** Flag para animação de título dentro do widget */
+__boolean __animation_widget_title = false;
+
+/** Flag para animação de borda do widget */
+__boolean __animation_widget_border = false;
+
+/** Flag para animação de gradiente do widget */
+__boolean __animation_widget_gradient = false;
+
+/** Flag para animação de sombra do widget */
+__boolean __animation_widget_shadow = false;
+
+/** Flag para animação de objeto transparente */
+__boolean __animation_widget_transparent = false;
+
+/** Flag para animação de pixel individual */
+__boolean __animation_pixel = false;
+
+/** Velocidade da animação de pixel individual */
+__NUM __animation_pixel_speed = 10;
+
+/** Flag para animação de pixel em fade */
+__boolean __animation_pixel_fade = false;
+
+/** Flag para animação de pixel em blink */
+__boolean __animation_pixel_blink = false;
+
+/** Intervalo de blink do pixel */
+__NUM __animation_pixel_blink_interval = 500;
+
+/** Flag para animação de pixel em cor dinâmica */
+__boolean __animation_pixel_dynamic_color = false;
+
+/** Flag para animação de pixel em escala */
+__boolean __animation_pixel_scale = false;
+
+/** Flag para animação de pixel em rotação */
+__boolean __animation_pixel_rotate = false;
+
+/** Flag para animação de pixel em posição */
+__boolean __animation_pixel_position = false;
+
+/** Flag para animação de pixel em z-index */
+__boolean __animation_pixel_z = false;
+
+/** Flag para animação de pixel em overlay */
+__boolean __animation_pixel_overlay = false;
+
+/** Flag para animação de pixel em gradiente */
+__boolean __animation_pixel_gradient = false;
+
+/** Flag para animação de pixel em sombra */
+__boolean __animation_pixel_shadow = false;
+
+/** Flag para animação de pixel em destaque */
+__boolean __animation_pixel_highlight = false;
+
+/** Flag para animação de pixel invisível */
+__boolean __animation_pixel_invisible = false;
+
+/** Flag para animação de pixel piscando e reverso */
+__boolean __animation_pixel_blink_reverse = false;
+import gabryos.ui.*
+import gabryos.ui.anim.*
+__static BUTTON {
+__ONCLICK = ( CLICK | CALL_FUNC );
+__ONCLICK = "CALL ONCLICK ID_%ID"
+__TEXT = ( TEXT | CALL_TEXT );
+__UI = ( ONCLICK | TEXT | X | Y | Z | SIZE_BUTTON );
+}
+__static TOUCHSCREEN {__x,__y,__z};
+__static BITS __func {
+TEXT("BITS(*bits);
+__BITS? = ;};
+__public px {0,10000000000000000000000000000000000000000000000000000000000000000000000};
+__VIEW BATTERY {@LEVEL , @ICON};
+/** END */
